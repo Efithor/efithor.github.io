@@ -5,10 +5,13 @@ h1 {
 }
 p{
 	color: #ffd633;
-	text-align:center;
+	text-align:left;
 	font-family: 'Cousine';
+}
+p.latterline{
+	margin: 0.5cm 0cm 0cm 1cm;
 }
 a{
 	color: #e6b800;
-	text-alight:center;
+	text-align:center;
 }
