@@ -1,0 +1,21 @@
+h1 {
+	font-family: 'Cousine';
+	color: #ffd633;
+	text-align:center;
+}
+p{
+	color: #ffd633;
+	text-align:center;
+	font-family: 'Cousine';
+}
+a{
+	color: #e6b800;
+}
+#canvas-container {
+   width: 100%;
+   text-align:center;
+}
+
+canvas {
+   display: inline;
+}
