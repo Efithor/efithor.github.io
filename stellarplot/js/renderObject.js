@@ -50,7 +50,7 @@ var renderObject = function(){
 	};
 	//Update Speed Text
 	renderObject.prototype.updateSpeedText = function(){
-		this.speedText.content = simSpeed;
+		this.speedText.content = simSpeed*60;
 		if(simSpeed == 100000000){
 			this.speedText.content = this.speedText.content +' (Max)';
 		}
