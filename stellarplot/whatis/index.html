@@ -8,5 +8,20 @@
 
 </head>
 <body bgcolor="#000">
-	<h1 color"#33cc33">What is this?</h1>
+	<h1>What is this?</h1>
+	<img src="plotimg.png" alt="Stellar Plot">
+	<p>Stellar Plot is a javascript applet that simulates the progress of stars on an H-R diagram from shortly after their creation to their becoming red giants. The program can model stars ranging from one to seven times the mass of the sun, starting from 124,045 years after its birth, and progressing until it has fully become a red giant. </p>
+	<p><b>What’s an H-R diagram?</b></p>
+	<p>Also known as the Hertzsprung-Russell diagram, the H-R diagram plots stars with the surface temperature on one axis, and the lumenocity on the other. This diagram uses solar luminosity, which compares the lumenocity of the stars to the lumenocity of the sun. A value of 1 means that it’s as luminous as the sun, with larger values indicating a brighter star, and lower values indicating a dimmer star.</p>
+	<p><b>What’s that roughly diagonal line of unmoving stars on the diagram?</b></p>
+	<p>That’s the Zero-Age-Main-Sequence (ZAMS), or the place where stars spend most of their lifetimes. A star will start it’s life as a protostar, move down the H-R diagram until it hits the main sequence, hang out there for a long time, and then start moving back up on the path to being a red giant. Having the ZAMS shown on the diagram helps give a reference as to where a star is in the grand scheme of things.</p>
+	<p><b>How do I use this thing?</b></p>
+	<p>Hover over the green circle and move the mouse to select an initial mass. Then simply click, and the star will be created and start moving across the diagram. To adjust the speed of the simulation, use the ÷10 and the x10 buttons to alter the speed by an order of magnitude. Keep in mind, you’ll need slower speeds to be able to efficiently observe more massive stars, and faster speeds for less massive ones. </p>
+	<p><b>How accurate is it?</b></p>
+	<p>The paths the stars follow are based on data obtained by researchers using advanced computer models of stars (see reference section). Running one of these models inside a javascript applet would be impractical, so the program extrapolates from the data and does the best it can. Stellar Plot shouldn’t be used as a formal research tool, but is intended for those wanting to get a basic handle on stellar evolution.</p>
+	<p><b>Why do stars tend to “jump” in certain places?</b></p>
+	<p>Due to the shortness of human lifespans and the massive distances involved, our knowledge of stars is still quite limited, and even the best models will disagree. For this reason, when the applet is moving from one model to the other, the star can jump significantly. </p>
+	<p><b>Why do the stars vanish after moving off the ZAMS? Do they die?</b></p>
+	<p>They don’t die (yet), but the program doesn’t simulate the life of a star once it becomes a red giant. Stellar Plot offloads the star once it reaches that point to prevent clutter.</p>
+	<a href="../">Go Back</a>
 </body>

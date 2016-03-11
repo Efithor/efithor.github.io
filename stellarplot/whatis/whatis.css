@@ -1,13 +1,18 @@
 h1 {
 	font-family: 'Cousine';
 	color: #ffd633;
-	text-align:center;
+	text-align:left;
+	margin: 0cm 2cm 2cm 2cm;
 }
 p{
 	color: #ffd633;
-	text-align:center;
+	text-align:left;
 	font-family: 'Cousine';
+	margin: 0cm 2cm 0.5cm 2cm;
 }
 a{
 	color: #e6b800;
+}
+img{
+	margin: 0cm 2cm 0.5cm 2cm;
 }
