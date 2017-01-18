@@ -907,10 +907,10 @@ var UI = function(){
 			for(var q=-this.hiderRange;q<this.hiderRange;q++){
 				this.xPos = mazeCenterX + q*26*currRings;
 				this.hiderSquare = new paper.Path.Rectangle(new paper.Point(this.xPos,this.yPos),26*currRings);
-				this.hiderSquare.strokeColor = mazeColor;
+				//this.hiderSquare.strokeColor = mazeColor;
 				this.hiderSquare.fillColor = mazeColor;
-				this.hiderSquare.strokeColor.brightness = Math.random();
-				this.hiderSquare.fillColor.brightness = this.hiderSquare.strokeColor.brightness;
+				//this.hiderSquare.strokeColor.brightness = Math.random();
+				this.hiderSquare.fillColor.brightness = Math.random();
 				this.hiderLayer.addChild(this.hiderSquare);
 				this.isInTransition[this.hiderSquare.index] = false;
 			}
@@ -932,10 +932,10 @@ var UI = function(){
 			this.pixelToChange = (this.hiderLayer.children[Math.ceil(Math.random()*(this.hiderLayer.children.length-1))]);
 			if(this.pixelToChange.fillColor.brightness >= 0.9){
 				this.pixelToChange.fillColor.brightness = 0.1;
-				this.pixelToChange.strokeColor.brightness = 0.1;
+				//this.pixelToChange.strokeColor.brightness = 0.1;
 			}else{
 				this.pixelToChange.fillColor.brightness +=0.05;
-				this.pixelToChange.strokeColor.brightness +=0.05;
+				//this.pixelToChange.strokeColor.brightness +=0.05;
 			}
 			/**
 			if(Math.random()>0.5){
@@ -4788,7 +4788,7 @@ window.onload = function(){
 		}
 		
 		//Animate Hider
-		//theUI.animateHider();
+		theUI.animateHider();
 		
 		theShaker.shake();
 		
