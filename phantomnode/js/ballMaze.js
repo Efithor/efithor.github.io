@@ -4788,7 +4788,7 @@ window.onload = function(){
 		}
 		
 		//Animate Hider
-		theUI.animateHider();
+		//theUI.animateHider();
 		
 		theShaker.shake();
 		
