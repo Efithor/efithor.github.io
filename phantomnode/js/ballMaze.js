@@ -1690,48 +1690,45 @@ var storyManager = function(theTyper,storyTyper,theAnimator){
 		}
 		if(currRings==4&&this.roundCount==9&&this.chapterStoryMessages[currRings*10+this.roundCount]==false){
 			this.chapterStoryMessages[currRings*10+this.roundCount]=true;
-			this.chapter4_10WinMessage();
+			this.chapter4_9WinMessage();
 		}
 		if(currRings==4&&this.roundCount==10&&this.chapterStoryMessages[currRings*10+this.roundCount]==false){
 			this.chapterStoryMessages[currRings*10+this.roundCount]=true;
-			this.chapter4_11WinMessage();
+			this.chapter4_10WinMessage();
 		}
 		if(currRings==4&&this.roundCount==11&&this.chapterStoryMessages[currRings*10+this.roundCount]==false){
 			this.chapterStoryMessages[currRings*10+this.roundCount]=true;
-			this.chapter4_12WinMessage();
+			this.chapter4_11WinMessage();
 		}
 		if(currRings==4&&this.roundCount==12&&this.chapterStoryMessages[currRings*10+this.roundCount]==false){
 			this.chapterStoryMessages[currRings*10+this.roundCount]=true;
-			this.chapter4_13WinMessage();
+			this.chapter4_12WinMessage();
 		}
 		if(currRings==4&&this.roundCount==13&&this.chapterStoryMessages[currRings*10+this.roundCount]==false){
 			this.chapterStoryMessages[currRings*10+this.roundCount]=true;
-			this.chapter4_14WinMessage();
+			this.chapter4_13WinMessage();
 		}
 		if(currRings==4&&this.roundCount==14&&this.chapterStoryMessages[currRings*10+this.roundCount]==false){
 			this.chapterStoryMessages[currRings*10+this.roundCount]=true;
-			this.chapter4_15WinMessage();
+			this.chapter4_14WinMessage();
 		}
 		if(currRings==4&&this.roundCount==15&&this.chapterStoryMessages[currRings*10+this.roundCount]==false){
 			this.chapterStoryMessages[currRings*10+this.roundCount]=true;
-			this.chapter4_16WinMessage();
+			this.chapter4_15WinMessage();
 		}
 		if(currRings==4&&this.roundCount==16&&this.chapterStoryMessages[currRings*10+this.roundCount]==false){
 			this.chapterStoryMessages[currRings*10+this.roundCount]=true;
-			this.chapter4_17WinMessage();
+			this.chapter4_16WinMessage();
 		}
 		if(currRings==4&&this.roundCount==17&&this.chapterStoryMessages[currRings*10+this.roundCount]==false){
 			this.chapterStoryMessages[currRings*10+this.roundCount]=true;
-			this.chapter4_18WinMessage();
+			this.chapter4_17WinMessage();
 		}
 		if(currRings==4&&this.roundCount==18&&this.chapterStoryMessages[currRings*10+this.roundCount]==false){
 			this.chapterStoryMessages[currRings*10+this.roundCount]=true;
-			this.chapter4_19WinMessage();
+			this.chapter4_18WinMessage();
 		}
-		if(currRings==4&&this.roundCount==19&&this.chapterStoryMessages[currRings*10+this.roundCount]==false){
-			this.chapterStoryMessages[currRings*10+this.roundCount]=true;
-			this.chapter4_19WinMessage();
-		}
+		
 	}
 	
 	//Story Messages
@@ -3386,8 +3383,8 @@ var transitionAnimations = function(maze,backSq,backLns,UIObj,theHelpButton,soun
 			if(this.serverTextTypeDelay==this.serverTextFrame){
 				this.serverTextFrame=0;
 				if(this.serverNodeTextContent.length > this.serverNodeText.content.length){
-					OSDNeeded = true;
-					console.log(OSDNeeded);
+					//OSDNeeded = true;
+					//console.log(OSDNeeded);
 					//Draw the next character.
 					this.serverNodeText.content = (this.serverNodeText.content).concat(this.serverNodeTextContent.charAt(this.serverTextHorzPos));
 					this.serverTextHorzPos++;
@@ -3408,7 +3405,7 @@ var transitionAnimations = function(maze,backSq,backLns,UIObj,theHelpButton,soun
 					this.serverTextHorzPos++;
 				}else{
 					this.serverTextHorzPos=0;
-					OSDNeeded = false;
+					//OSDNeeded = false;
 					this.introStage++;
 				}
 			}else{
@@ -3495,7 +3492,7 @@ var transitionAnimations = function(maze,backSq,backLns,UIObj,theHelpButton,soun
 		}
 		if(this.ActTransStage == 1){
 			if(this.winTextTypeDelay==this.winTextFrame){
-				OSDNeeded = true;
+				//OSDNeeded = true;
 				this.winTextFrame=0;
 				if(this.winTextContent.length > this.winText.content.length){
 					//Draw the next character.
@@ -3504,7 +3501,7 @@ var transitionAnimations = function(maze,backSq,backLns,UIObj,theHelpButton,soun
 				}else{
 					this.toggleWhiteMode();
 					this.ActTransStage = 2;
-					OSDNeeded = false;
+					//OSDNeeded = false;
 					this.winText.content = "";
 					this.winTextHorzPos=0;
 				}
@@ -3553,7 +3550,7 @@ var transitionAnimations = function(maze,backSq,backLns,UIObj,theHelpButton,soun
 		//Display Text
 		if(this.ActTransStage==4){
 			if(this.serverTextTypeDelay==this.serverTextFrame){
-				OSDNeeded = true;
+				//OSDNeeded = true;
 				this.serverTextFrame=0;
 				if(this.disconTextContent.length > this.disconText.content.length){
 					//Draw the next character.
@@ -3562,7 +3559,7 @@ var transitionAnimations = function(maze,backSq,backLns,UIObj,theHelpButton,soun
 				}else{
 					this.serverTextFrame = 0;
 					this.serverTextHorzPos=0;
-					OSDNeeded = false;
+					//OSDNeeded = false;
 					this.ActTransStage++;
 				}
 			}else{
@@ -3571,7 +3568,7 @@ var transitionAnimations = function(maze,backSq,backLns,UIObj,theHelpButton,soun
 		}
 		if(this.ActTransStage==5){
 			if(this.serverTextTypeDelay==this.serverTextFrame){
-				OSDNeeded = true;
+				//OSDNeeded = true;
 				this.serverTextFrame=0;
 				if(this.disconServerTextContent.length > this.disconServerText.content.length){
 					//Draw the next character.
@@ -3579,7 +3576,7 @@ var transitionAnimations = function(maze,backSq,backLns,UIObj,theHelpButton,soun
 					this.serverTextHorzPos++;
 				}else{
 					this.serverTextHorzPos=0;
-					OSDNeeded = false;
+					//OSDNeeded = false;
 					this.ActTransStage++;
 				}
 			}else{
@@ -4506,7 +4503,7 @@ var soundManager = function(){
 				this.menuHum.isPlaying = true;
 			}
 			if(this.clickTiming==this.clickTimingFrame){
-				console.log('boop');
+				//console.log('boop');
 				this.menuClicking.play();
 				this.clickTimingFrame ++;
 			}else{
