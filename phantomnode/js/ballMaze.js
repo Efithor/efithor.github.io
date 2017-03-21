@@ -59,6 +59,8 @@ var mazeCenter;
 var Core;
 var ringThickness = 20;
 
+var blurVal = 0;
+
 var totalRoundsPlayed;
 
 var backColor;
@@ -652,11 +654,11 @@ var maze = function(){
 		mazeGroup.strokeColor = mazeColor;
 		mazeGroup.closed = true;
 		mazeGroup.shadowColor = mazeColor;
-		mazeGroup.shadowBlur = 12;
+		mazeGroup.shadowBlur = blurVal;
 		
 		enterSegGroup.closed = true;
 		enterSegGroup.shadowColor = mazeColor;
-		enterSegGroup.shadowBlur = 12;
+		enterSegGroup.shadowBlur = blurVal;
 		enterSegGroup.fillColor = mazeColor;
 		enterSegGroup.strokeColor = mazeColor;
 		enterSegGroup.shadowColor = mazeColor;
@@ -665,7 +667,7 @@ var maze = function(){
 		exitSegGroup.fillColor = mazeColor;
 		exitSegGroup.strokeColor = mazeColor;
 		exitSegGroup.shadowColor = mazeColor;
-		exitSegGroup.shadowBlur = 12;
+		exitSegGroup.shadowBlur = blurVal;
 		
 		//Draw walls and rotate the wall into the correct position.
 		for (var i=0;i<walls.length;i++){
@@ -734,8 +736,8 @@ var maze = function(){
 		
 		arc1.fillColor.alpha = 0.9;
 		arc1.strokeColor.alpha = 0.9;
-		arc1.shadowColor = mazeColor;
-		arc1.shadowBlur = 12;
+		//arc1.shadowColor = mazeColor;
+		//arc1.shadowBlur = 12;
 
 		
 		return arc1;
@@ -777,7 +779,7 @@ var maze = function(){
 		rectPath.strokeColor = mazeColor;
 		rectPath.selected = false;
 		rectPath.shadowColor = mazeColor;
-		rectPath.shadowBlur = 6;
+		rectPath.shadowBlur = blurVal;
 		
 		return rectPath;
 	}
@@ -3094,7 +3096,7 @@ var transitionAnimations = function(maze,backSq,backLns,UIObj,theHelpButton,soun
 				this.titleText.nextChar();
 			}else{
 				if(this.menuRevealStage==2){
-					this.creditText = new textTyper(2,1,60,paper.view.center.x,paper.view.center.y-(paper.view.center.y/2)+25,null,null,false,30,'bold','center',true,true,false);
+					this.creditText = new textTyper(2,1,60,paper.view.center.x,paper.view.center.y-(paper.view.center.y/2)+95,null,null,false,30,'bold','center',true,true,false);
 					this.creditText.passText("A GAME BY KYLE CONNOR");
 					this.menuRevealStage++;
 				}else{
@@ -3104,61 +3106,72 @@ var transitionAnimations = function(maze,backSq,backLns,UIObj,theHelpButton,soun
 						}
 						this.creditText.nextChar();
 					}else{
-						if(this.menuRevealStage==4){
-							this.startText = new textTyper(2,1,60,paper.view.center.x,paper.view.center.y+(paper.view.center.y/2),null,null,false,50,'bold','center',true,true,false);
+						if(this.menuRevealStage==13){
+							this.startText = new textTyper(2,1,60,paper.view.center.x,paper.view.center.y-(paper.view.center.y/2)+35,null,null,false,50,'bold','center',true,true,false);
 							this.startText.passText('BEGIN');
 							this.menuRevealStage++;
 						}else{
-							if(this.menuRevealStage==5){
+							if(this.menuRevealStage==14){
 								if(this.startText.vertPos==this.startText.lineCount){
 									this.menuRevealStage++;
 								}
 								this.startText.nextChar();
 							}else{
-								if(this.menuRevealStage==6){
-									this.menuRevealStage++;
+								if(this.menuRevealStage==15){
+									this.menuRevealStage = 0;
+									this.menuRevealActive = false;
 								}
 							}
 						}
-						if(this.menuRevealStage==7){
-							this.musicCreditText = new textTyper(0,1,60,paper.view.center.x,paper.view.center.y+(paper.view.center.y/2)+50,null,null,false,30,'bold','center',true,true,false);
+						if(this.menuRevealStage==4){
+							this.musicCreditText = new textTyper(0,1,60,paper.view.center.x,paper.view.center.y-(paper.view.center.y/2)+130,null,null,false,30,'bold','center',true,true,false);
 							this.musicCreditText.passText("MUSIC BY");
 							this.menuRevealStage++;
 						}
-						if(this.menuRevealStage==8){
+						if(this.menuRevealStage==5){
 							if(this.musicCreditText.vertPos==this.musicCreditText.lineCount){
 								this.menuRevealStage++;
 							}
 							this.musicCreditText.nextChar();
 						}
-						if(this.menuRevealStage==9){
-							this.bishopCreditText = new textTyper(0,1,60,paper.view.center.x,paper.view.center.y+(paper.view.center.y/2)+75,null,null,false,30,'bold','center',true,true,false);
+						if(this.menuRevealStage==6){
+							this.bishopCreditText = new textTyper(0,1,60,paper.view.center.x,paper.view.center.y-(paper.view.center.y/2)+155,null,null,false,30,'bold','center',true,true,false);
 							this.bishopCreditText.passText("DROID BISHOP");
 							this.menuRevealStage++;
 						}
-						if(this.menuRevealStage==10){
+						if(this.menuRevealStage==7){
 							if(this.bishopCreditText.vertPos==this.bishopCreditText.lineCount){
 								this.menuRevealStage++;
 							}
 							this.bishopCreditText.nextChar();
 						}
-						if(this.menuRevealStage==11){
-							this.nowtroCreditText = new textTyper(0,1,60,paper.view.center.x,paper.view.center.y+(paper.view.center.y/2)+100,null,null,false,30,'bold','center',true,true,false);
+						if(this.menuRevealStage==8){
+							this.nowtroCreditText = new textTyper(0,1,60,paper.view.center.x,paper.view.center.y-(paper.view.center.y/2)+180,null,null,false,30,'bold','center',true,true,false);
 							this.nowtroCreditText.passText("NOWTRO");
 							this.menuRevealStage++;
 						}
-						if(this.menuRevealStage==12){
+						if(this.menuRevealStage==9){
 							if(this.nowtroCreditText.vertPos==this.nowtroCreditText.lineCount){
 								this.menuRevealStage++;
 							}
 							this.nowtroCreditText.nextChar();
 						}
-						if(this.menuRevealStage==13){
-							this.bishopBox = new paper.Path.Rectangle(paper.view.center.x-61,paper.view.center.y+(paper.view.center.y/2)+82,149,18);
-							this.nowtroBox = new paper.Path.Rectangle(paper.view.center.x-23,paper.view.center.y+(paper.view.center.y/2)+107,75,18);
-							this.startTextBox = new paper.Path.Rectangle(paper.view.center.x-37,paper.view.center.y+(paper.view.center.y/2)-5,103,30);
-							this.menuRevealStage = 0;
-							this.menuRevealActive = false;
+						if(this.menuRevealStage==10){
+							this.bishopBox = new paper.Path.Rectangle(paper.view.center.x-61,paper.view.center.y-(paper.view.center.y/2)+148+15,149,18);
+							this.nowtroBox = new paper.Path.Rectangle(paper.view.center.x-23,paper.view.center.y-(paper.view.center.y/2)+172+15,75,18);
+							this.startTextBox = new paper.Path.Rectangle(paper.view.center.x-37,paper.view.center.y-(paper.view.center.y/2)+30,103,30);
+							this.menuRevealStage++;
+						}
+						if(this.menuRevealStage==11){
+							this.F11Text = new textTyper(0,1,60,paper.view.center.x,paper.view.center.y-(paper.view.center.y/2)+60,null,null,false,30,'bold','center',true,true,false);
+							this.F11Text.passText("(PRESS F11 FOR OPTIMAL EXPERIENCE)");
+							this.menuRevealStage++;
+						}
+						if(this.menuRevealStage==12){
+							if(this.F11Text.vertPos==this.F11Text.lineCount){
+								this.menuRevealStage++;
+							}
+							this.F11Text.nextChar();
 						}
 					}
 				}
@@ -3187,7 +3200,9 @@ var transitionAnimations = function(maze,backSq,backLns,UIObj,theHelpButton,soun
 			if(this.startText.textArray[0].content.length>0){
 				this.nowtroCreditText.textArray[0].content = this.startText.textArray[0].content.slice(0,this.startText.textArray[0].content.length-1);
 			}
-			
+			if(this.F11Text.textArray[0].content.length>0){
+				this.F11Text.textArray[0].content = "";
+			}
 			if(this.titleText.textArray[0].content.length==0&&this.creditText.textArray[0].content.length==0&&this.startText.textArray[0].content.length==0){
 				this.introStage++;
 			}
@@ -4403,6 +4418,33 @@ var backgroundSquare = function(){
 		return this.theBackgroundSquare;
 	}
 }
+
+/**
+var qualityControl = function(){
+	this.qualityButton = new paper.PointText(new paper.Point(paper.view.bounds.right-150,paper.view.bounds.top+50));
+	this.qualityButton.fontFamily = 'VT323';
+	this.qualityButton.fontSize = 50;
+	this.qualityButton.fontWeight = 'bold';
+	this.qualityButton.content = 'QUALITY: LOW';
+	this.qualityButton.fillColor = 'red';
+	this.qualityButton.shadowColor = 'red';
+	this.qualityButton.shadowBlur = 12;
+	this.qualityButton.fillColor.alpha = 0;
+	this.qualityButton.shadowColor.alpha = 0;
+	
+	this.highQuality = false;
+	
+	qualityControl.prototype.toggleQuality = function(){
+		if(this.highQuality = false){
+			
+		}else{
+			
+		}
+		
+		this.highQuality = !this.highQuality;
+	}
+}
+**/
 
 var helpWindow = function(){
 	this.helpButton = new paper.PointText(new paper.Point(paper.view.bounds.right-50,paper.view.bounds.top+50));
