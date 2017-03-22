@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+<link rel="stylesheet" type"text/css" href="mainPage.css">
+<script>
+	function disableAll(){
+		document.getElementById("aboutWindow").style.display = "none";
+		document.getElementById("diskWindow").style.display = "none";
+		document.getElementById("contactWindow").style.display = "none";
+		document.getElementById("aboutText").innerHTML = "ABOUT &#60-";
+		document.getElementById("aboutText").style.color = "";
+		document.getElementById("discoText").innerHTML = "DISCOGRAPHY &#60-";
+		document.getElementById("discoText").style.color = "";
+		document.getElementById("contactText").innerHTML = "CONTACT &#60-";
+		document.getElementById("contactText").style.color = "";
+	}
+	function showAboutWindow() {
+		disableAll();
+		document.getElementById("aboutWindow").style.display = "block";
+		document.getElementById("aboutText").innerHTML = "ABOUT ->";
+		document.getElementById("aboutText").style.color = "whiteSmoke";
+    }
+	function showDiskWindow() {
+		disableAll();
+		document.getElementById("diskWindow").style.display = "block";
+		document.getElementById("discoText").innerHTML = "DISCOGRAPHY ->";
+		document.getElementById("discoText").style.color = "whiteSmoke";
+    }
+	function showContactWindow() {
+		disableAll();
+		document.getElementById("contactWindow").style.display = "block";
+		document.getElementById("contactText").innerHTML = "CONTACT ->";
+		document.getElementById("contactText").style.color = "whiteSmoke";
+    }
+</script>
+<title>Elven</title>
+</head>
+<div id="logo">
+<img src="Elven.png">
+</div>
+<div id="masterDiv">
+	<div id="sideSelectors">
+		<div id="selectorAbout">
+			<a onClick="showAboutWindow();" style="cursor: pointer; cursor: hand;"><p id="aboutText">ABOUT &#60- </p> </a>
+		</div>
+		<div id="selectorDisco">
+			<a onClick="showDiskWindow();" style="cursor: pointer; cursor: hand;"><p id="discoText">DISCOGRAPHY &#60- </p> </a>
+		</div>
+		<div id="selectorContact">
+			<a onClick="showContactWindow();" style="cursor: pointer; cursor: hand;"><p id="contactText">CONTACT &#60- </p> </a>
+		</div>
+		
+	</div>
+	<div id="aboutWindow">
+		<div id="scrollAbout">
+			<img id="profile" src="elvenBandB.png">
+			<p id="aboutContent">
+				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+			</p>
+		</div>
+	</div>
+	
+	<div id="diskWindow">
+		<div id="scrollDisk">
+			<a href="https://elevnoff.bandcamp.com/track/critter-skitter-elevn-remix"><img id="album" src="critter.jpg"></a>
+			<a href="https://elevnoff.bandcamp.com/track/burn-alexandria-burn"><img id="album" src="dead.jpg"></a>
+			<a href="https://elevnoff.bandcamp.com/track/john-carpenters-the-fog-elevn-remix"><img id="album" src="fog.jpg"></a>
+			<a href="https://elevnoff.bandcamp.com/track/escape-the-matter"><img id="album" src="escape.jpg"></a>
+		</div>
+	</div>
+	
+	<div id="contactWindow">
+		<div id="scrollContact">
+			<p id="contactFormText">
+				NAME:
+			</p>
+			<p>
+				<input type="text" name="name" id="nameNEmail"><br>
+			</p>
+			<p id="contactFormText">
+				EMAIL:
+			</p>
+			<p>
+				<input type="text" name="email" id="nameNEmail"><br>
+			</p>
+			<p id="contactFormText">
+			Message:
+			</p>
+			<p>
+				<textarea type="text" name="message" id="message"></textarea>
+			</p>
+			<p>
+				<input type="submit" value="SEND" id="sendButton">
+			</p>
+		</div>
+	</div>
+</div>
