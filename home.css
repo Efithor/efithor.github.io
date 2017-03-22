@@ -11,3 +11,11 @@ p{
 a{
 	color: #e6b800;
 }
+body{
+	background-color: black;
+}
+#logoDiv{
+	height:auto;
+	width:auto;
+	margin-left:30%;
+}

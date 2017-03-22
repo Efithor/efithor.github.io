@@ -8,21 +8,6 @@
 
 /**
 TODO:
-Ensure cursor vanishes whenever mouse leaves canvas.
-Quash bugs
-
-Bugs
--Player dieing in the middle of the maze.
--Player lagging in the middle of maze.
--Can click begin button after gamestart.
--Might want to redo the statecode to make it more robust.
-Cursor to ball transition.
-Delay maze reveal until after text is finished
-
-Create victory animation.
-Create chevrons to direct player into maze
-Create story
-Create music/sound.
 Optimize!
 **/
 
