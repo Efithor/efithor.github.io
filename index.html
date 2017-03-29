@@ -6,11 +6,88 @@
 <link rel="stylesheet" type"text/css" href="home.css">
 <script type="text/javascript" src="js/paper-full.js"></script>
 <script type="text/javascript" src="js/orangeLogo.js"></script>
+<script>
+	function disableAllSections(){
+		document.getElementById("softwareWrapper").style.display = "none";
+		document.getElementById("writingWrapper").style.display = "none";
+		document.getElementById("aboutWrapper").style.display = "none";
+		document.getElementById("softwareText").style.color = "";
+		document.getElementById("writingText").style.color = "";
+		document.getElementById("aboutText").style.color = "";
+	}
+	function showSoftwareSection(){
+		disableAllSections();
+		document.getElementById("softwareWrapper").style.display = "block";
+		document.getElementById("softwareText").style.color = "white";
+		//Set shadow color
+	}
+	function showWritingSection(){
+		disableAllSections();
+		document.getElementById("writingWrapper").style.display = "block";
+		document.getElementById("writingText").style.color = "white";
+		//Set shadow color
+	}
+	function showAboutSection(){
+		disableAllSections();
+		document.getElementById("aboutWrapper").style.display = "block"; 
+		document.getElementById("aboutText").style.color = "white";
+		//Set shadow color
+	}
+</script>
+
 <title>Node Orange</title>
 </head>
 
 <div id="logoDiv">
-	<canvas id="logoCanvas" width="460" height="150" keepalive="false"></canvas>
+	<canvas id="logoCanvas" width="460" height="100" keepalive="false"></canvas>
 </div>
+<div id="masterWrapper">
+	<div id="menuBar">
 
+			<a onClick="showSoftwareSection();" style="cursor: pointer; cursor: hand;"><p id="softwareText">SOFTWARE</p> </a>
+
+
+			<a onClick="showWritingSection();" style="cursor: pointer; cursor: hand;"><p id="writingText">WRITING</p> </a>
+
+
+			<a onClick="showAboutSection();" style="cursor: pointer; cursor: hand;"><p id="aboutText">ABOUT</p> </a>
+
+	</div>
+	<hr id="menuLine"></hr>
+	<div id = "softwareWrapper">
+		<div id = "softImg">
+			<div id = "phantomSelector">
+				<a href="http://www.nodeOrange.com/phantomnode"><img id="phantomImg" src="PhantomSplash.png"></a>
+			</div>
+			<a href="http://www.nodeOrange.com/phantomnode" id = "phantomInfo">
+				Phantom Node       
+				<p id = "phantomDescText">Hack your way through procedurally generated mazes to find the truth. Featuring music by Nowtro and Droid Bishop.</p>
+			</a>
+		</div>
+		<div id = "softImg">
+			<div id = "stellarSelector">
+				<a href="http://www.nodeOrange.com/stellarplot/"><img id="stellarImg" src="Plotimg.png"></a>
+			</div>
+			<a href = "http://www.nodeOrange.com/stellarplot" id = "stellarInfo">
+				Stellar Plotter      
+				<p id = "stellarDescText">Visualize the evolution of stars across an H-R diagram, from protostar phase to red giant.</p>
+			</a>
+		</div>
+		<div id = "softImg">
+			<div id = "dimentionSelector">
+				<img id="dimentionImg" src="dimentionPrev.png"></a>
+			</div>
+			<div id = "dimentionInfo">
+				Dimention Adventure      
+				<p id = "dimentionDescText">Working title, in development.</p>
+			</div>
+		</div>
+	</div>
+	<div id = "writingWrapper">
+	
+	</div>
+	<div id = "aboutWrapper">
+	
+	</div>
+</div>
 
