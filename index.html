@@ -4,34 +4,70 @@
 <meta charset="UTF-8">
 <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
 <link rel="stylesheet" type"text/css" href="home.css">
-<script type="text/javascript" src="js/paper-full.js"></script>
-<script type="text/javascript" src="js/orangeLogo.js"></script>
+<script type="text/javascript" src="paper-full.js"></script>
+<script type="text/javascript" src="orangeLogo.js"></script>
 <script>
+	window.onload = function(){
+		//Handle the sections.
+		disableAllSections();
+		showSoftwareSection();
+		
+		//Load the logo.
+		var canvas = document.getElementById('logoCanvas');
+		paper.setup(canvas);
+		var theLogo = new orangeLogo();
+		theLogo.theMaze = new maze(new paper.Point(220,52));
+		
+		theLogo.NodeText = new paper.PointText(new paper.Point(0,80));
+		theLogo.NodeText.fillColor = theLogo.Color;
+		theLogo.NodeText.fontFamily = 'VT323';
+		theLogo.NodeText.fontSize = theLogo.typeSize;
+		theLogo.NodeText.shadowColor = theLogo.Color;
+		theLogo.NodeText.shadowBlur = theLogo.blurVal;
+		theLogo.NodeText.content = 'NODE';
+		theLogo.OrangeText = new paper.PointText(new paper.Point(260,80));
+		theLogo.OrangeText.fillColor = theLogo.Color;
+		theLogo.OrangeText.fontFamily = 'VT323';
+		theLogo.OrangeText.fontSize = theLogo.typeSize;
+		theLogo.OrangeText.shadowColor = theLogo.Color;
+		theLogo.OrangeText.shadowBlur = theLogo.blurVal;
+		theLogo.OrangeText.content = 'RANGE';
+		
+		theLogo.theMaze.generateMaze();
+		theLogo.theMaze.drawMaze();
+		paper.view.onFrame = function(event){
+			theLogo.theMaze.rotateMaze();
+		}
+	}
+
 	function disableAllSections(){
 		document.getElementById("softwareWrapper").style.display = "none";
 		document.getElementById("writingWrapper").style.display = "none";
 		document.getElementById("aboutWrapper").style.display = "none";
 		document.getElementById("softwareText").style.color = "";
+		document.getElementById("softwareText").style.textShadow = "";
 		document.getElementById("writingText").style.color = "";
+		document.getElementById("writingText").style.textShadow = "";
 		document.getElementById("aboutText").style.color = "";
+		document.getElementById("aboutText").style.textShadow = "";
 	}
 	function showSoftwareSection(){
 		disableAllSections();
 		document.getElementById("softwareWrapper").style.display = "block";
 		document.getElementById("softwareText").style.color = "white";
-		//Set shadow color
+		document.getElementById("softwareText").style.textShadow = "0px 0px 5px white";
 	}
 	function showWritingSection(){
 		disableAllSections();
 		document.getElementById("writingWrapper").style.display = "block";
 		document.getElementById("writingText").style.color = "white";
-		//Set shadow color
+		document.getElementById("writingText").style.textShadow = "0px 0px 5px white";
 	}
 	function showAboutSection(){
 		disableAllSections();
 		document.getElementById("aboutWrapper").style.display = "block"; 
 		document.getElementById("aboutText").style.color = "white";
-		//Set shadow color
+		document.getElementById("aboutText").style.textShadow = "0px 0px 5px white";
 	}
 </script>
 
@@ -84,10 +120,19 @@
 		</div>
 	</div>
 	<div id = "writingWrapper">
+		<div id = "writingImg">
+			<div id = "nozzleSelector">
+				<a href="http://www.aviation.com/general-aviation/making-better-airplane-tail-sweeping-air-nozzles/"><img id="nozzleImg" src="Nozzle.png"></a>
+			</div>
+			<a href="http://www.aviation.com/general-aviation/making-better-airplane-tail-sweeping-air-nozzles/" id = "nozzleInfo">
+				Aviation.com       
+				<p id = "phantomDescText">An article on making a better airplane tail with sweeping air nozzles, written for Aviation.com.</p>
+			</a>
+		</div>
 	
 	</div>
 	<div id = "aboutWrapper">
-	
+		<p>@efithor</p>
 	</div>
 </div>
 

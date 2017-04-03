@@ -25,24 +25,39 @@ body{
 #softwareText{
 	width: 100px;
 	height: 30px;
-  float: left;
+	float: left;
 	margin-right: 50px;
+	color: orange;
+	text-shadow: 0px 0px 5px orange;
 }
 #softwareText:hover {
 	color:white;
+	text-shadow: 0px 0px 5px white;
 }
 #writingText{
-  width: 90px;
+	width: 90px;
 	height: 30px;
 	float: left;
 	margin-right: 50px;
 	margin-left: 50px;
+	color: orange;
+	text-shadow: 0px 0px 5px orange;
+}
+#writingText:hover{
+	color:white;
+	text-shadow: 0px 0px 5px white;
 }
 #aboutText{
-  width: 60px;
+	width: 60px;
 	height: 30px;
-  float: left;
+	float: left;
 	margin-left: 50px;
+	color: orange;
+	text-shadow: 0px 0px 5px orange;
+}
+#aboutText:hover{
+	color:white;
+	text-shadow: 0px 0px 5px white;
 }
 #menuLine{
 	color:orange;
@@ -160,4 +175,42 @@ body{
 	color:orange;
 	text-align: left;
 	margin-top:0px;
+}
+
+#writingWrapper{
+	width:760px;
+	margin:auto;
+	margin-top:50px;
+	height:auto;
+}
+#writingImg{
+	width:200px;
+	height:200px;
+	float:left;
+	margin-left:25px;
+	margin-right:25px;
+  border: 1px orange solid;
+	position: relative;
+}
+#nozzleInfo{
+	font-family: 'VT323';
+	font-size:25px;
+	text-shadow: 0px 0px 5px orange;
+	color: orange; 
+	background-color: rgb(0,0,0,0.7);
+	width:195px;
+	height: 30px;
+	position: absolute;
+	clip: rect(0px,200px,30px,0px);
+  bottom:0px;
+	padding-left: 5px;
+	transition: height 0.5s, clip 0.5s, color 0.0s;
+}
+#nozzleSelector:hover + #nozzleInfo{
+	height: 200px;
+	clip: rect(0px,200px,200px,0px);
+}
+#nozzleInfo:hover{
+	height: 200px;
+  clip: rect(0px,200px,200px,0px);
 }

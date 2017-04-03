@@ -1,29 +1,15 @@
-var NodeText;
-var OrangeText;
-var theMaze;
-var mazeSpeed = 0.3;
-var currRings = 2;
-var segments = [];
-var walls = [];
-var mazeGroup;
-var enterZone;
-var exitZone;
-var enterSeg = [];
-var exitSeg = [];
-var enterSegGroup;
-var exitSegGroup;
-var readArray = [];
-var ringSep = 12;
-var ringThickness = 4;
-var Core;
-var testerArray = [];
-var Color = 'orange';
-var blurVal = 12;
-var mazeCenter;
-var typeSize = 100;
+var orangeLogo = function(){
+	var NodeText;
+	var OrangeText;
+	var theMaze;
+	this.Color = 'orange';
+	this.blurVal = 12;
+	this.typeSize = 100;
+}
 
-var maze = function(){
+var maze = function(center){
 	//Variables
+	var mazeCenter = center;
 	var checkedArray = [];
 	var segChance = 0.75;
 	var wallChance = 0.25;
@@ -31,6 +17,24 @@ var maze = function(){
 	enterSegGroup = new paper.Group();
 	exitSegGroup = new paper.Group();
 	this.shadowCount = 3;
+	var segments = [];
+	var walls = [];
+	var mazeGroup;
+	var enterZone;
+	var exitZone;
+	var enterSeg = [];
+	var exitSeg = [];
+	var enterSegGroup;
+	var exitSegGroup;
+	var readArray = [];
+	var testerArray = [];
+	var Core;
+	var mazeSpeed = 0.3;
+	var currRings = 2;
+	var ringSep = 12;
+	var ringThickness = 4;
+	var Color = 'orange';
+	var blurVal = 12;
 	
 	//Methods
 
@@ -517,7 +521,9 @@ var maze = function(){
 	//The draw maze method. Takes variables from the design maze function and draws the maze.
 	//For now it just draws all the components of the maze. The parts of the maze are globally
 	//accessible to allow for collision detection.
-	maze.prototype.drawMaze = function(coreX,coreY, ringNum, ringThickness, ringSep){
+	maze.prototype.drawMaze = function(){
+		coreX = mazeCenter.x;
+		coreY = mazeCenter.y;
 		//Draw the core. The core never changes, so it doesn't have its own method.
 		Core = new paper.Path.Circle(new paper.Point(coreX, coreY), 5);
 		if(currRings==4&&roundCount != 19){
@@ -731,11 +737,11 @@ var maze = function(){
 
 	//Rotate maze method. Goes through each part of the segments and wall arrays and if the spot is not blank,
 	//rotates the path.
-	maze.prototype.rotateMaze = function(speed){
-		mazeGroup.rotate(speed,mazeCenter);
+	maze.prototype.rotateMaze = function(){
+		mazeGroup.rotate(mazeSpeed,mazeCenter);
 		//paintTrail.rotate(speed,mazeCenter);
-		enterSegGroup.rotate(speed,mazeCenter);
-		exitSegGroup.rotate(speed,mazeCenter);
+		enterSegGroup.rotate(mazeSpeed,mazeCenter);
+		exitSegGroup.rotate(mazeSpeed,mazeCenter);
 	}
 	
 	//After a round is won, reset exits.
@@ -786,6 +792,8 @@ var maze = function(){
 	
 }
 
+//If the onload function isn't being used anywhere, use it here.
+/**
 window.onload = function(){
 	//Get and setup canvas.
 	var canvas = document.getElementById('logoCanvas');
@@ -816,5 +824,6 @@ window.onload = function(){
 		theMaze.rotateMaze(mazeSpeed);
 	
 	}
-
 }
+**/
+
