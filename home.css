@@ -111,7 +111,7 @@ body{
 	font-size:25px;
 	text-shadow: 0px 0px 5px orange;
 	color: orange; 
-	background-color: rgb(0,0,0,0.7);
+	background-color: rgba(0,0,0,0.7);
 	width:195px;
 	height: 30px;
 	position: absolute;
@@ -140,7 +140,7 @@ body{
 	font-size:25px;
 	text-shadow: 0px 0px 5px orange;
 	color: orange; 
-	background-color: rgb(0,0,0,0.7);
+	background-color: rgba(0,0,0,0.7);
 	width:195px;
 	height: 30px;
 	position: absolute;
@@ -169,7 +169,7 @@ body{
 	font-size:25px;
 	text-shadow: 0px 0px 5px orange;
 	color: orange; 
-	background-color: rgb(0,0,0,0.7);
+	background-color: rgba(0,0,0,0.7);
 	width:195px;
 	height: 30px;
 	position: absolute;
@@ -215,7 +215,7 @@ body{
 	font-size:25px;
 	text-shadow: 0px 0px 5px orange;
 	color: orange; 
-	background-color: rgb(0,0,0,0.7);
+	background-color: rgba(0,0,0,0.7);
 	width:195px;
 	height: 30px;
 	position: absolute;
