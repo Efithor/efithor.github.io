@@ -70,6 +70,7 @@ body{
 	margin:auto;
 	margin-top:50px;
 	height:auto;
+	display:none;
 }
 #phantomImg{
 	height:200px;
@@ -182,6 +183,7 @@ body{
 	margin:auto;
 	margin-top:50px;
 	height:auto;
+	display:none;
 }
 #writingImg{
 	width:200px;
