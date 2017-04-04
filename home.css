@@ -7,6 +7,15 @@ p{
 }
 a{
 	text-decoration: none;
+	color: orange;
+	text-align:left;
+	font-family: 'VT323';
+	font-size:25px;
+	text-shadow: 0px 0px 5px orange;
+}
+a:hover{
+	color: white;
+	text-shadow: 0px 0px 5px white;
 }
 body{
 	background-color: black;
@@ -15,11 +24,14 @@ body{
 	height:100px;
 	width:455px;
 	margin:auto;
+	cursor: pointer;
+	cursor: hand;
 }
 #menuBar{
 	width:450px;
 	height:30px;
 	margin:auto;
+	font-size: 30px;
 }
 
 #softwareText{
@@ -94,6 +106,7 @@ body{
 	position: relative;
 }
 #phantomInfo{
+	-webkit-appearance: none;
 	font-family: 'VT323';
 	font-size:25px;
 	text-shadow: 0px 0px 5px orange;
@@ -122,6 +135,7 @@ body{
 	margin-top:0px;
 }
 #stellarInfo{
+	-webkit-appearance: none;
 	font-family: 'VT323';
 	font-size:25px;
 	text-shadow: 0px 0px 5px orange;
@@ -150,6 +164,7 @@ body{
 	margin-top:0px;
 }
 #dimentionInfo{
+	-webkit-appearance: none;
 	font-family: 'VT323';
 	font-size:25px;
 	text-shadow: 0px 0px 5px orange;
@@ -195,6 +210,7 @@ body{
 	position: relative;
 }
 #nozzleInfo{
+	-webkit-appearance: none;
 	font-family: 'VT323';
 	font-size:25px;
 	text-shadow: 0px 0px 5px orange;
@@ -215,4 +231,15 @@ body{
 #nozzleInfo:hover{
 	height: 200px;
   clip: rect(0px,200px,200px,0px);
+}
+#aboutWrapper{
+	width:700px;
+	margin:auto;
+	margin-top:50px;
+	height:auto;
+	display:none;
+	border: 1px orange solid;
+}
+#personalBlurb{
+	font-size:25px;
 }

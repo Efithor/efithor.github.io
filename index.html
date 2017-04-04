@@ -38,6 +38,13 @@
 		paper.view.onFrame = function(event){
 			theLogo.theMaze.rotateMaze();
 		}
+		
+		var tool = new paper.Tool();
+		//Generate a new maze on click.
+		tool.onMouseDown = function(event){
+			theLogo.theMaze.generateMaze();
+			theLogo.theMaze.drawMaze();
+		}
 	}
 
 	function disableAllSections(){
@@ -132,7 +139,12 @@
 	
 	</div>
 	<div id = "aboutWrapper">
-		<p>@efithor</p>
+		<div id = 'contactBox'>	
+			<p id = 'personalBlurb'>I'm Kyle, and I made the game Phantom Node, as well as this website. I'm currently available for work in javascript, web design, or C#/unity.</p>
+			<p id = 'personalBlurb'>Contact me via:</p>
+			<p id = 'personalBlurb'>Email: <a href="mailto:efithor@gmail.com">Efithor@gmail.com</a></p>
+			<p id = 'personalBlurb'>Twitter: <a href="www.twitter.com/efithor">@Efithor</a></p>
+		</div>
 	</div>
 </div>
 
