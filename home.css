@@ -72,8 +72,8 @@ body{
 	text-shadow: 0px 0px 5px white;
 }
 #menuLine{
-	color:orange;
-	margin-top: 70px;
+	border-color:orange;
+	margin-top:70px;
 }
 
 
