@@ -132,7 +132,7 @@ body{
 	font-size:20px;
 	color:orange;
 	text-align: left;
-	margin-top:0px;
+	margin-top:1px;
 }
 #stellarInfo{
 	-webkit-appearance: none;
@@ -161,7 +161,7 @@ body{
 	font-size:20px;
 	color:orange;
 	text-align: left;
-	margin-top:0px;
+	margin-top:1px;
 }
 #dimentionInfo{
 	-webkit-appearance: none;
@@ -190,7 +190,7 @@ body{
 	font-size:20px;
 	color:orange;
 	text-align: left;
-	margin-top:0px;
+	margin-top:1px;
 }
 
 #writingWrapper{
