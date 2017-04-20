@@ -2173,7 +2173,6 @@ var storyManager = function(theTyper,storyTyper,theAnimator){
 		this.storyTyper.passText("what the analytics guys are    ");
 		this.storyTyper.passText("telling me, the thing is spread");
 		this.storyTyper.passText("out over five hundred.         ");
-		this.storyTyper.passText("We're capirit in our systems   ");
 		this.storyTyper.passText("We're calling this the 'Phantom");
 		this.storyTyper.passText("Node' until we can figure out  ");
 		this.storyTyper.passText("how to get at it.              ");
