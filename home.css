@@ -232,6 +232,58 @@ body{
 	height: 200px;
   clip: rect(0px,200px,200px,0px);
 }
+#tmtInfo{
+	-webkit-appearance: none;
+	font-family: 'VT323';
+	font-size:25px;
+	text-shadow: 0px 0px 5px orange;
+	color: orange; 
+	background-color: rgba(0,0,0,0.7);
+	width:195px;
+	height: 30px;
+	position: absolute;
+	clip: rect(0px,200px,30px,0px);
+	bottom:0px;
+	padding-left: 5px;
+	transition: height 0.5s, clip 0.5s, color 0.0s;
+}
+#tmtImg{
+	height:200px;
+}
+#tmtSelector:hover + #tmtInfo{
+	height: 200px;
+	clip: rect(0px,200px,200px,0px);
+}
+#tmtInfo:hover{
+	height: 200px;
+	clip: rect(0px,200px,200px,0px);
+}
+#labInfo{
+	-webkit-appearance: none;
+	font-family: 'VT323';
+	font-size:25px;
+	text-shadow: 0px 0px 5px orange;
+	color: orange; 
+	background-color: rgba(0,0,0,0.7);
+	width:195px;
+	height: 30px;
+	position: absolute;
+	clip: rect(0px,200px,30px,0px);
+  bottom:0px;
+	padding-left: 5px;
+	transition: height 0.5s, clip 0.5s, color 0.0s;
+}
+#labImg{
+	height:200px;
+}
+#labSelector:hover + #labInfo{
+	height: 200px;
+	clip: rect(0px,200px,200px,0px);
+}
+#labInfo:hover{
+	height: 200px;
+  clip: rect(0px,200px,200px,0px);
+}
 #aboutWrapper{
 	width:700px;
 	margin:auto;
