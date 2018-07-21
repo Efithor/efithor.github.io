@@ -6,6 +6,10 @@ a{
   font-family: 'Montserrat', sans-serif;
   text-decoration: none;
 }
+body{
+  width:1000px;
+  margin:auto;
+}
 #topBar{
   width:700px;
 }
@@ -24,7 +28,6 @@ a{
 #appendix{
   font-size: 25px;
   width: 300px;
-  float:left;
 }
 
 #appendixTitle{
@@ -39,7 +42,6 @@ a{
 #tweetDiv{
   width:700px;
   min-width:700px;
-  float:left;
 }
 #content{
   margin-top:40px;
