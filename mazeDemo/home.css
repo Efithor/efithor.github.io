@@ -21,8 +21,7 @@ body{
 	background-color: black;
 }
 #logoDiv{
-	height:100px;
-	width:455px;
+	width: 50%;
 	margin: auto;
 	cursor: pointer;
 	cursor: hand;
