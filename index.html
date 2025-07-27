@@ -10,7 +10,7 @@
 	window.onload = function(){
 		//Handle the sections.
 		disableAllSections();
-		showSoftwareSection();
+		showWritingSection();
 
 		//Load the logo.
 		var canvas = document.getElementById('logoCanvas');
@@ -96,10 +96,10 @@
 <div id="masterWrapper">
 	<div id="menuBar">
 
-			<a onClick="showSoftwareSection();" style="cursor: pointer; cursor: hand;"><p id="softwareText">SOFTWARE</p> </a>
-
-
 			<a onClick="showWritingSection();" style="cursor: pointer; cursor: hand;"><p id="writingText">WRITING</p> </a>
+
+
+			<a onClick="showSoftwareSection();" style="cursor: pointer; cursor: hand;"><p id="softwareText">PROJECTS</p> </a>
 
 
 			<a onClick="showAboutSection();" style="cursor: pointer; cursor: hand;"><p id="aboutText">ABOUT</p> </a>
@@ -127,15 +127,67 @@
 		</div>
 	</div>
 	<div id = "writingWrapper">
-		<div id = "writingImg">
-			<div id = "nozzleSelector">
-				<a href="https://efithorsjetsampatch.substack.com/"><img id="nozzleImg" src="Nozzle.png"></a>
-			</div>
-			<a href="https://efithorsjetsampatch.substack.com/" id = "nozzleInfo">
-				Substack
-				<p id = "phantomDescText">Personal Substack.</p>
-			</a>
-		</div>
+		<div id="substack-feed" style="max-width:700px;margin:auto;"></div>
+		<script>
+		(async () => {
+		  const feedDiv = document.getElementById('substack-feed');
+		  feedDiv.innerHTML = '<p style="color:orange;font-family:VT323;font-size:25px">Loading…</p>';
+		  try {
+		    const rss = encodeURIComponent('https://efithorsjetsampatch.substack.com/feed');
+		    const data = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${rss}`).then(r => r.json());
+		    feedDiv.innerHTML = '';
+		    data.items.slice(0,5).forEach((item,idx,arr) => {
+		      const imgUrl = item.thumbnail || (item.enclosure ? item.enclosure.link : '');
+		      const card = document.createElement('div');
+		      card.className = 'postCard';
+
+		      // clickable image
+		      if (imgUrl) {
+		        const imgLink = document.createElement('a');
+		        imgLink.href = item.link;
+		        imgLink.target = '_blank';
+		        const img = document.createElement('img');
+		        img.src = imgUrl;
+		        imgLink.appendChild(img);
+		        card.appendChild(imgLink);
+		      }
+
+		      const title = document.createElement('a');
+		      title.href = item.link;
+		      title.target = '_blank';
+		      title.textContent = item.title;
+		      card.appendChild(title);
+
+		      const excerpt = document.createElement('p');
+		      const tempDiv = document.createElement('div');
+		      tempDiv.innerHTML = item.description;
+		      const plainText = tempDiv.textContent || tempDiv.innerText || '';
+		      excerpt.textContent = plainText.slice(0,120)+'…';
+		      card.appendChild(excerpt);
+
+		      feedDiv.appendChild(card);
+
+		      // separator except after last card
+		      if (idx < arr.length-1) {
+		        const sep = document.createElement('hr');
+		        sep.className = 'feedSeparator';
+		        feedDiv.appendChild(sep);
+		      }
+		    });
+
+		    // Archive button
+		    const archiveBtn = document.createElement('a');
+		    archiveBtn.href = 'https://efithorsjetsampatch.substack.com/archive';
+		    archiveBtn.target = '_blank';
+		    archiveBtn.className = 'archiveButton';
+		    archiveBtn.textContent = 'View Full Archive →';
+		    feedDiv.appendChild(archiveBtn);
+		  } catch(err) {
+		    console.error('Failed to load Substack feed', err);
+		    feedDiv.innerHTML = '<p style="color:red">Unable to load feed.</p>';
+		  }
+		})();
+		</script>
 	</div>
 	<div id = "aboutWrapper">
 		<div id = 'contactBox'>	
