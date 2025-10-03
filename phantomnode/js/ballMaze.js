@@ -2685,35 +2685,53 @@ var storyManager = function(theTyper,storyTyper,theAnimator){
 }
 //Player Sphere object. Ball is guided by the cursor. Dies if it touches the maze.
 var playerSphere = function(){
-	var havePlayerSphere = false;
-	var player;
-	playerSphere.prototype.createPlayer = function(){
-		player = new paper.Path.Circle(new paper.Point(-10, -10), 5);
-		player.fillColor = 'red';
-		player.strokeColor = 'red';
-		player.shadowColor = playerColor;
-		player.shadowBlur = 12;
-	}
-	playerSphere.prototype.pickupPlayerSphere = function(){
-		havePlayerSphere = true;
-	}
-	playerSphere.prototype.movePlayer = function(mouseX,mouseY){
-		if(havePlayerSphere==true){	
-			player.position = new paper.Point(mouseX,mouseY);
-		}
-	}
-	playerSphere.prototype.kill = function(screenShaker){
-		this.screenShaker = screenShaker;
-		if(havePlayerSphere==true){
+        var havePlayerSphere = false;
+        var player;
+        var targetPosition = new paper.Point(-10, -10);
+        var mouseInfluence = 0.2;
+        var maxStep = 20;
+        playerSphere.prototype.createPlayer = function(){
+                player = new paper.Path.Circle(new paper.Point(-10, -10), 5);
+                player.fillColor = 'red';
+                player.strokeColor = 'red';
+                player.shadowColor = playerColor;
+                player.shadowBlur = 12;
+                targetPosition = player.position.clone();
+        }
+        playerSphere.prototype.pickupPlayerSphere = function(){
+                havePlayerSphere = true;
+        }
+        playerSphere.prototype.movePlayer = function(mouseX,mouseY){
+                if(havePlayerSphere==true){
+                        targetPosition = new paper.Point(mouseX, mouseY);
+                        var delta = targetPosition.subtract(player.position);
+                        var distance = delta.length;
+
+                        if(distance < 0.5){
+                                player.position = targetPosition;
+                        }else{
+                                var moveDistance = Math.min(distance * mouseInfluence, maxStep);
+                                if(moveDistance >= distance){
+                                        player.position = targetPosition;
+                                }else if(moveDistance > 0){
+                                        player.position = player.position.add(delta.normalize(moveDistance));
+                                }
+                        }
+                }
+        }
+        playerSphere.prototype.kill = function(screenShaker){
+                this.screenShaker = screenShaker;
+                if(havePlayerSphere==true){
 			gameStart = false;
 			this.screenShaker.shakeScreen(30);
 			this.dropSphere();
 		}
-	}	
-	playerSphere.prototype.dropSphere = function(){
-		havePlayerSphere=false;
-		player.position=new paper.Point(-10,-10);
-	}
+        }
+        playerSphere.prototype.dropSphere = function(){
+                havePlayerSphere=false;
+                targetPosition = new paper.Point(-10,-10);
+                player.position = targetPosition.clone();
+        }
 	playerSphere.prototype.hasSphere = function(){
 		return havePlayerSphere;
 	}
