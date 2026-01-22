@@ -20,6 +20,54 @@ a:hover{
 body{
 	background-color: black;
 }
+#stickyHeader{
+	position: fixed;
+	top: -80px;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	background: rgba(0,0,0,0.95);
+	border-bottom: 1px solid orange;
+	box-shadow: 0 0 15px rgba(255,165,0,0.3);
+	padding: 10px 0;
+	transition: top 0.3s ease;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 60px;
+}
+#stickyHeader.visible{
+	top: 0;
+}
+#stickyHeader .navItem{
+	font-family: 'VT323';
+	font-size: 28px;
+	color: orange;
+	text-shadow: 0px 0px 5px orange;
+	cursor: pointer;
+	position: relative;
+	padding: 5px 0;
+}
+#stickyHeader .navItem::after{
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 2px;
+	background: orange;
+	box-shadow: 0 0 8px orange;
+	transition: width 0.3s ease, left 0.3s ease;
+}
+#stickyHeader .navItem:hover::after,
+#stickyHeader .navItem.active::after{
+	width: 100%;
+	left: 0;
+}
+#stickyHeader .navItem:hover{
+	color: white;
+	text-shadow: 0px 0px 5px white;
+}
 #logoDiv{
 	height:100px;
 	width:455px;
@@ -32,14 +80,31 @@ body{
 	height:30px;
 	margin:auto;
 	font-size: 30px;
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+}
+#menuBar a{
+	position: relative;
+	padding: 5px 15px;
+}
+#menuBar a::after{
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 2px;
+	background: orange;
+	box-shadow: 0 0 8px orange;
+	transition: width 0.3s ease, left 0.3s ease;
+}
+#menuBar a:hover::after{
+	width: 100%;
+	left: 0;
 }
 
 #softwareText{ /* now Projects */
-	width: 100px;
-	height: 30px;
-	float: left;
-	margin-right: 50px;
-	margin-left: 50px; /* give separation on left side since it is now second */
 	color: orange;
 	text-shadow: 0px 0px 5px orange;
 }
@@ -48,11 +113,6 @@ body{
 	text-shadow: 0px 0px 5px white;
 }
 #writingText{
-	width: 90px;
-	height: 30px;
-	float: left;
-	margin-right: 50px;
-	margin-left: 0px;
 	color: orange;
 	text-shadow: 0px 0px 5px orange;
 }
@@ -61,10 +121,6 @@ body{
 	text-shadow: 0px 0px 5px white;
 }
 #aboutText{
-	width: 60px;
-	height: 30px;
-	float: left;
-	margin-left: 50px;
 	color: orange;
 	text-shadow: 0px 0px 5px orange;
 }
@@ -301,32 +357,62 @@ body{
 .postCard{
   border: 1px solid orange;
   margin: 20px 0;
-  padding: 10px;
+  padding: 0;
+  padding-right: 20px;
   background: rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 25px;
+  overflow: hidden;
+}
+.postCard .imageLink{
+  flex-shrink: 0;
+  width: 220px;
+  height: 160px;
+  position: relative;
+}
+.postCard .imageLink::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40px;
+  background: linear-gradient(to right, transparent, rgba(0,0,0,0.8));
+  pointer-events: none;
 }
 .postCard img{
-  width: 100%;
-  max-height: 200px;
+  width: 220px;
+  height: 160px;
   object-fit: cover;
   display: block;
-  margin-bottom: 8px;
 }
-.postCard a{
+.postCard .textContent{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px 0;
+}
+.postCard a.titleLink{
   font-family: 'VT323';
-  font-size: 28px;
+  font-size: 36px;
   color: orange;
   text-shadow: 0 0 5px orange;
+  margin-bottom: 10px;
 }
-.postCard a:hover{
+.postCard a.titleLink:hover{
   color: white;
   text-shadow: 0 0 5px white;
 }
 .postCard p{
   font-family: 'VT323';
-  font-size: 20px;
+  font-size: 24px;
   color: white;
   text-align: left;
-  margin-top: 5px;
+  margin-top: 0;
+  line-height: 1.4;
 }
 .feedSeparator{
   border: 0;

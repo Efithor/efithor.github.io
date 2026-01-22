@@ -76,6 +76,48 @@
 		document.getElementById("aboutText").style.color = "white";
 		document.getElementById("aboutText").style.textShadow = "0px 0px 5px white";
 	}
+
+	// Sticky header scroll detection - wrapped in DOMContentLoaded
+	document.addEventListener('DOMContentLoaded', function(){
+		let lastScrollY = window.scrollY;
+		let ticking = false;
+		const stickyHeader = document.getElementById('stickyHeader');
+		const scrollThreshold = 150; // How far down before sticky can appear
+
+		window.addEventListener('scroll', function(){
+			if(!ticking){
+				window.requestAnimationFrame(function(){
+					const currentScrollY = window.scrollY;
+
+					// Only show sticky if we've scrolled down past threshold
+					if(currentScrollY > scrollThreshold){
+						// Scrolling up - show header
+						if(currentScrollY < lastScrollY){
+							stickyHeader.classList.add('visible');
+						}
+						// Scrolling down - hide header
+						else{
+							stickyHeader.classList.remove('visible');
+						}
+					} else {
+						// Near top - always hide sticky
+						stickyHeader.classList.remove('visible');
+					}
+
+					lastScrollY = currentScrollY;
+					ticking = false;
+				});
+				ticking = true;
+			}
+		});
+	});
+
+	function updateActiveNav(clickedItem){
+		document.querySelectorAll('#stickyHeader .navItem').forEach(item => {
+			item.classList.remove('active');
+		});
+		if(clickedItem) clickedItem.classList.add('active');
+	}
 </script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -90,6 +132,12 @@
 <title>Node Orange</title>
 </head>
 
+<div id="stickyHeader">
+	<span class="navItem" onclick="showWritingSection(); updateActiveNav(this);">WRITING</span>
+	<span class="navItem" onclick="showSoftwareSection(); updateActiveNav(this);">FUN STUFF</span>
+	<span class="navItem" onclick="showAboutSection(); updateActiveNav(this);">ABOUT</span>
+</div>
+
 <div id="logoDiv">
 	<canvas id="logoCanvas" width="460" height="100" keepalive="false"></canvas>
 </div>
@@ -99,7 +147,7 @@
 			<a onClick="showWritingSection();" style="cursor: pointer; cursor: hand;"><p id="writingText">WRITING</p> </a>
 
 
-			<a onClick="showSoftwareSection();" style="cursor: pointer; cursor: hand;"><p id="softwareText">PROJECTS</p> </a>
+			<a onClick="showSoftwareSection();" style="cursor: pointer; cursor: hand;"><p id="softwareText">FUN STUFF</p> </a>
 
 
 			<a onClick="showAboutSection();" style="cursor: pointer; cursor: hand;"><p id="aboutText">ABOUT</p> </a>
@@ -107,27 +155,30 @@
 	</div>
 	<hr id="menuLine"></hr>
 	<div id = "softwareWrapper">
-		<div id = "softImg">
-			<div id = "phantomSelector">
-				<a href="http://www.nodeOrange.com/phantomnode"><img id="phantomImg" src="PhantomSplash.png"></a>
+		<div id="projects-feed" style="max-width:900px;margin:auto;">
+			<div class="postCard">
+				<a href="http://www.nodeOrange.com/phantomnode" class="imageLink" target="_blank">
+					<img src="PhantomSplash.png" alt="Phantom Node">
+				</a>
+				<div class="textContent">
+					<a href="http://www.nodeOrange.com/phantomnode" class="titleLink" target="_blank">Phantom Node</a>
+					<p>Hack your way through procedurally generated mazes to find the truth. Featuring music by Nowtro and Droid Bishop.</p>
+				</div>
 			</div>
-			<a href="http://www.nodeOrange.com/phantomnode" id = "phantomInfo">
-				Phantom Node
-				<p id = "phantomDescText">Hack your way through procedurally generated mazes to find the truth. Featuring music by Nowtro and Droid Bishop.</p>
-			</a>
-		</div>
-		<div id = "softImg">
-			<div id = "stellarSelector">
-				<a href="http://www.nodeOrange.com/stellarplot/"><img id="stellarImg" src="Plotimg.png"></a>
+			<hr class="feedSeparator">
+			<div class="postCard">
+				<a href="http://www.nodeOrange.com/stellarplot/" class="imageLink" target="_blank">
+					<img src="Plotimg.png" alt="Stellar Plotter">
+				</a>
+				<div class="textContent">
+					<a href="http://www.nodeOrange.com/stellarplot/" class="titleLink" target="_blank">Stellar Plotter</a>
+					<p>Visualize the evolution of stars across an H-R diagram, from protostar phase to red giant.</p>
+				</div>
 			</div>
-			<a href = "http://www.nodeOrange.com/stellarplot" id = "stellarInfo">
-				Stellar Plotter
-				<p id = "stellarDescText">Visualize the evolution of stars across an H-R diagram, from protostar phase to red giant.</p>
-			</a>
 		</div>
 	</div>
 	<div id = "writingWrapper">
-		<div id="substack-feed" style="max-width:700px;margin:auto;"></div>
+		<div id="substack-feed" style="max-width:900px;margin:auto;"></div>
 		<script>
 		(async () => {
 		  const feedDiv = document.getElementById('substack-feed');
@@ -141,29 +192,37 @@
 		      const card = document.createElement('div');
 		      card.className = 'postCard';
 
-		      // clickable image
+		      // clickable image on the left
 		      if (imgUrl) {
 		        const imgLink = document.createElement('a');
 		        imgLink.href = item.link;
 		        imgLink.target = '_blank';
+		        imgLink.className = 'imageLink';
 		        const img = document.createElement('img');
 		        img.src = imgUrl;
 		        imgLink.appendChild(img);
 		        card.appendChild(imgLink);
 		      }
 
+		      // text content wrapper on the right
+		      const textContent = document.createElement('div');
+		      textContent.className = 'textContent';
+
 		      const title = document.createElement('a');
 		      title.href = item.link;
 		      title.target = '_blank';
+		      title.className = 'titleLink';
 		      title.textContent = item.title;
-		      card.appendChild(title);
+		      textContent.appendChild(title);
 
 		      const excerpt = document.createElement('p');
 		      const tempDiv = document.createElement('div');
 		      tempDiv.innerHTML = item.description;
 		      const plainText = tempDiv.textContent || tempDiv.innerText || '';
 		      excerpt.textContent = plainText.slice(0,120)+'…';
-		      card.appendChild(excerpt);
+		      textContent.appendChild(excerpt);
+
+		      card.appendChild(textContent);
 
 		      feedDiv.appendChild(card);
 
@@ -191,7 +250,7 @@
 	</div>
 	<div id = "aboutWrapper">
 		<div id = 'contactBox'>	
-			<p id = 'personalBlurb'>Email: <a href="mailto:efithor@gmail.com">Efithor@gmail.com</a></p>
+			<p id = 'personalBlurb'>Email: <a href="mailto:efithor@nodeorange.com">Efithor@nodeorange.com</a></p>
 		</div>
 	</div>
 </div>
