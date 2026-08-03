@@ -168,10 +168,12 @@
 		if(clickedItem) clickedItem.classList.add('active');
 	}
 
+	var COPY_ICON = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+	var CHECK_ICON = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
 	function copyPip(btn, cmd){
 		navigator.clipboard.writeText(cmd).then(function(){
-			btn.textContent = 'COPIED!';
-			setTimeout(function(){ btn.textContent = 'COPY'; }, 1500);
+			btn.innerHTML = CHECK_ICON;
+			setTimeout(function(){ btn.innerHTML = COPY_ICON; }, 1500);
 		});
 	}
 </script>
@@ -222,7 +224,7 @@
 					<p>Ownership-aware registry and autonomous reaper for RunPod GPU pods</p>
 					<div class="pipLine">
 						<code>pip install podtrack</code>
-						<button class="copyBtn" onclick="copyPip(this, 'pip install podtrack')">COPY</button>
+						<button class="copyBtn" onclick="copyPip(this, 'pip install podtrack')" title="Copy" aria-label="Copy pip install command"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
 					</div>
 				</div>
 			</div>
@@ -236,7 +238,7 @@
 					<p>FP64-accurate linear algebra wrung out of BF16/FP32 tensor hardware (TPUs) via the Ozaki scheme &mdash; accurate matmul, solves, least-squares, and norms in JAX.</p>
 					<div class="pipLine">
 						<code>pip install ozaki-jax</code>
-						<button class="copyBtn" onclick="copyPip(this, 'pip install ozaki-jax')">COPY</button>
+						<button class="copyBtn" onclick="copyPip(this, 'pip install ozaki-jax')" title="Copy" aria-label="Copy pip install command"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
 					</div>
 				</div>
 			</div>
