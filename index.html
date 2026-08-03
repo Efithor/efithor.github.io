@@ -167,6 +167,13 @@
 		});
 		if(clickedItem) clickedItem.classList.add('active');
 	}
+
+	function copyPip(btn, cmd){
+		navigator.clipboard.writeText(cmd).then(function(){
+			btn.textContent = 'COPIED!';
+			setTimeout(function(){ btn.textContent = 'COPY'; }, 1500);
+		});
+	}
 </script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -212,7 +219,11 @@
 				</a>
 				<div class="textContent">
 					<a href="https://github.com/Efithor/podtrack" class="titleLink" target="_blank">podtrack</a>
-					<p>Ownership-aware registry and autonomous reaper for RunPod GPU pods &mdash; idle detection, dead-man switches, and artifact-safe teardowns, so a forgotten pod can't quietly bill for hours. <code>pip install podtrack</code></p>
+					<p>Ownership-aware registry and autonomous reaper for RunPod GPU pods</p>
+					<div class="pipLine">
+						<code>pip install podtrack</code>
+						<button class="copyBtn" onclick="copyPip(this, 'pip install podtrack')">COPY</button>
+					</div>
 				</div>
 			</div>
 			<hr class="feedSeparator">
@@ -222,7 +233,11 @@
 				</a>
 				<div class="textContent">
 					<a href="https://github.com/Efithor/ozaki-jax" class="titleLink" target="_blank">ozaki-jax</a>
-					<p>FP64-accurate linear algebra wrung out of BF16/FP32 tensor hardware (TPUs) via the Ozaki scheme &mdash; accurate matmul, solves, least-squares, and norms in JAX. <code>pip install ozaki-jax</code></p>
+					<p>FP64-accurate linear algebra wrung out of BF16/FP32 tensor hardware (TPUs) via the Ozaki scheme &mdash; accurate matmul, solves, least-squares, and norms in JAX.</p>
+					<div class="pipLine">
+						<code>pip install ozaki-jax</code>
+						<button class="copyBtn" onclick="copyPip(this, 'pip install ozaki-jax')">COPY</button>
+					</div>
 				</div>
 			</div>
 			<hr class="feedSeparator">

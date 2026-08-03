@@ -6,21 +6,17 @@
     </filter>
   </defs>
   <rect width="220" height="160" fill="#000000"/>
-  <!-- pod-rack motif: three live pods, one reaped -->
-  <g opacity="0.9">
-    <rect x="148" y="20" width="14" height="14" fill="none" stroke="#00ff00" stroke-width="2" opacity="0.7"/>
-    <rect x="170" y="20" width="14" height="14" fill="none" stroke="#ffa500" stroke-width="2" opacity="0.55"/>
-    <rect x="192" y="20" width="14" height="14" fill="none" stroke="#ffa500" stroke-width="2" opacity="0.55"/>
-    <rect x="148" y="42" width="14" height="14" fill="none" stroke="#ffa500" stroke-width="2" opacity="0.55"/>
-    <rect x="170" y="42" width="14" height="14" fill="none" stroke="#ffa500" stroke-width="2" opacity="0.25" stroke-dasharray="3,3"/>
-    <g stroke="#ffa500" stroke-width="2" opacity="0.9">
-      <line x1="171" y1="43" x2="183" y2="55"/>
-      <line x1="183" y1="43" x2="171" y2="55"/>
+  <!-- pod rack: five live pods, one reaped -->
+  <g filter="url(#glow)">
+    <rect x="41" y="37" width="34" height="34" fill="none" stroke="#00ff00" stroke-width="3"/>
+    <rect x="93" y="37" width="34" height="34" fill="none" stroke="#ffa500" stroke-width="3" opacity="0.8"/>
+    <rect x="145" y="37" width="34" height="34" fill="none" stroke="#ffa500" stroke-width="3" opacity="0.8"/>
+    <rect x="41" y="89" width="34" height="34" fill="none" stroke="#ffa500" stroke-width="3" opacity="0.8"/>
+    <rect x="93" y="89" width="34" height="34" fill="none" stroke="#ffa500" stroke-width="3" opacity="0.3" stroke-dasharray="5,5"/>
+    <g stroke="#ffa500" stroke-width="3">
+      <line x1="98" y1="94" x2="122" y2="118"/>
+      <line x1="122" y1="94" x2="98" y2="118"/>
     </g>
-    <rect x="192" y="42" width="14" height="14" fill="none" stroke="#ffa500" stroke-width="2" opacity="0.55"/>
+    <rect x="145" y="89" width="34" height="34" fill="none" stroke="#ffa500" stroke-width="3" opacity="0.8"/>
   </g>
-  <g font-family="monospace" filter="url(#glow)">
-    <text x="16" y="98" fill="#ffa500" font-size="30" font-weight="bold">podtrack</text>
-  </g>
-  <text x="16" y="138" font-family="monospace" font-size="14" fill="#ffffff" opacity="0.85">GPU pods, reaped on time</text>
 </svg>

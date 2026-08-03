@@ -414,6 +414,35 @@ body{
   margin-top: 0;
   line-height: 1.4;
 }
+.pipLine{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+.pipLine code{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 15px;
+  color: orange;
+  background: #1a1a1a;
+  border: 1px solid #3a3a3a;
+  border-radius: 4px;
+  padding: 4px 10px;
+}
+.copyBtn{
+  font-family: 'VT323';
+  font-size: 18px;
+  color: orange;
+  background: transparent;
+  border: 1px solid orange;
+  border-radius: 4px;
+  padding: 2px 10px;
+  cursor: pointer;
+}
+.copyBtn:hover{
+  background: orange;
+  color: black;
+}
 .feedSeparator{
   border: 0;
   height: 1px;
