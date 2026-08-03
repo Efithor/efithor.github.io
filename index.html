@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Node Orange (nodeorange.com): The collected writings and experiments of Efithor (Phantom Node, Stellar Plotter, ozaki-jax, etc.)">
+<meta name="description" content="Node Orange (nodeorange.com): The collected writings and experiments of Efithor (Phantom Node, Stellar Plotter, ozaki-jax, podtrack, etc.)">
 <link rel="canonical" href="https://www.nodeorange.com/">
 <meta name="theme-color" content="#ffa500">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Node Orange">
 <meta property="og:title" content="Node Orange">
-<meta property="og:description" content="The collected writings and experiments of Efithor (Phantom Node, Stellar Plotter, ozaki-jax, etc.)">
+<meta property="og:description" content="The collected writings and experiments of Efithor (Phantom Node, Stellar Plotter, ozaki-jax, podtrack, etc.)">
 <meta property="og:url" content="https://www.nodeorange.com/">
 <meta name="twitter:card" content="summary">
 <script type="application/ld+json">
@@ -22,8 +22,20 @@
       "url": "https://www.nodeorange.com/",
       "name": "Node Orange",
       "alternateName": ["nodeorange", "nodeorange.com"],
-      "description": "The collected writings and experiments of Efithor (Phantom Node, Stellar Plotter, ozaki-jax, etc.)",
+      "description": "The collected writings and experiments of Efithor (Phantom Node, Stellar Plotter, ozaki-jax, podtrack, etc.)",
       "publisher": { "@id": "https://www.nodeorange.com/#person" }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/Efithor/podtrack#software",
+      "name": "podtrack",
+      "description": "Ownership-aware registry and autonomous reaper for RunPod GPU pods: idle detection, dead-man switches, artifact-safe teardown, and multi-account cost control.",
+      "codeRepository": "https://github.com/Efithor/podtrack",
+      "programmingLanguage": "Python",
+      "runtimePlatform": "Python 3.9+",
+      "license": "https://opensource.org/licenses/MIT",
+      "downloadUrl": "https://pypi.org/project/podtrack/",
+      "author": { "@id": "https://www.nodeorange.com/#person" }
     },
     {
       "@type": "Person",
@@ -194,6 +206,16 @@
 	<hr id="menuLine"></hr>
 	<div id = "softwareWrapper">
 		<div id="projects-feed" style="max-width:900px;margin:auto;">
+			<div class="postCard">
+				<a href="https://github.com/Efithor/podtrack" class="imageLink" target="_blank">
+					<img src="podtrack-splash.svg" alt="podtrack">
+				</a>
+				<div class="textContent">
+					<a href="https://github.com/Efithor/podtrack" class="titleLink" target="_blank">podtrack</a>
+					<p>Ownership-aware registry and autonomous reaper for RunPod GPU pods &mdash; idle detection, dead-man switches, and artifact-safe teardowns, so a forgotten pod can't quietly bill for hours. <code>pip install podtrack</code></p>
+				</div>
+			</div>
+			<hr class="feedSeparator">
 			<div class="postCard">
 				<a href="https://github.com/Efithor/ozaki-jax" class="imageLink" target="_blank">
 					<img src="ozaki-splash.svg" alt="ozaki-jax">
